@@ -52,7 +52,6 @@ To activate an optimization parameter set its priority value to any positive val
     expression_priority=1
     subspace_priority=1
     center_priority=1
-    
     gc_priority=1
 
 Each parameter's priority value affects its influence on the internal weight function. Higher values compared to other parameters make optimized sequence more tailored to the target values of such parameters.

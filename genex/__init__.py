@@ -1,1 +1,1 @@
-from .genex import Optimizer
+from .gene_optimizer import Optimizer

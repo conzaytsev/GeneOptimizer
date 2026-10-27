@@ -4,7 +4,7 @@ Python module for gene optimisation based on CEI and GeneSpace models.
 This tool is based on [Codon Expression Index](https://github.com/conzaytsev/CodonExpressionIndex) and [Gene Space](https://github.com/conzaytsev/GeneSpace) models
 
 ## Requirements
-`Python >3.9`, `cei`, `genespace`
+`Python>3.9`, for custom model training: `cei`, `genespace`
 
 ## Data
 This tool comes with pre-trined model for E. coli. For species train the models using appropriate data formats for CEI and Gene Space models.

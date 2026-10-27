@@ -19,14 +19,14 @@ For the latest development version:
     pip install git+https://github.com/conzaytsev/GeneOptimizer.git
 
 ## Usage
-Using the pre-trained models:
+# Using the pre-trained models:
 
     import genex
 
     model = genex.Optimizer(input_sequence)
     optimized_sequence = model.optimize(target_expression)
 
-Using custom models:
+# Using custom models:
 
     import genex
     import cei
@@ -37,7 +37,7 @@ Using custom models:
     optimization_model = genex.Optimizer(input_sequence, expression_model=expression_model, subspace_model=subspace_model)
     optimized_sequence = model.optimize(target_expression)
 
-Optimizer parameters:
+# genex.Optimizer parameters:
 
 To use a nucleotide input_sequence (default):
     
@@ -60,5 +60,23 @@ To exclude any oligonucleotides from the optimized sequence:
     
     restriction_sites = ['AAGGTAGGC', 'TTTATTATT']
 
-    
+# Optimizer.optimize parameters:
+
+Target expression value in ppm (protein copies per million expressed by the cell):
+
+    target_score=10
+
+Distance from the edge of the genome subspace (positive values indicate that a sequence fits inside the subspace, negative for the outside):
+
+    target_distance=0.002
+
+Distance from the center of the gene space (values from 0 to 1 indicate sequence codon usage irregularity, where 0 means that each codon is used exactly the same number of times and 1 if for a sequence consisting exclusively of a single codon:
+
+    target_center=0.3
+
+% of the target GC content in the optimized sequence:
+
+    target_gc=0.46
+
+
 

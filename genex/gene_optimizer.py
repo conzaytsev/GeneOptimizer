@@ -37,7 +37,6 @@ def translate(aa_sequence):
     nuc_sequence = ''
     for letter in aa_sequence:
         nuc_sequence += dictionary[letter]
-    print(nuc_sequence)
     return nuc_sequence
 
 
@@ -89,11 +88,15 @@ def restriction_check(sequence, restriction_sites):
 
 class Optimizer:
     def __init__(self, input_sequence, sequence_type='nucleotide', expression_model='coli', subspace_model='coli', set_size=1000, expression_priority=1,
-                 subspace_priority=1, center_priority=0, gc_priority=0, n_children=10, max_iterations=300, restriction_sites=''):
+                 subspace_priority=0, center_priority=0, gc_priority=0, n_children=10, max_iterations=300, restriction_sites=''):
         if expression_model == 'coli':
-            with open(files(models) / '511145_cei.pkl', 'rb') as file: self.cei_model = pickle.load(file)
+            with open(files(models) / '511145_cei.pkl', 'rb') as file: self.expression_model = pickle.load(file)
+        else:
+            self.expression_model = expression_model
         if subspace_model == 'coli':
             with open(files(models) / '511145_sub.pkl', 'rb') as file: self.subspace_model = pickle.load(file)
+        else:
+            self.subspace_model = subspace_model
 
         codon_dictionary = [['TTT', 'TTC'],
                             ['TTA', 'TTG', 'CTT', 'CTC', 'CTA', 'CTG'],
@@ -157,7 +160,7 @@ class Optimizer:
                 for j in triplets:
                     sixplets.append(i + j)
 
-            distribution = subspace_model.distribution
+            distribution = self.subspace_model.distribution
 
             sixplet_frequencies = []
             for item in sixplet_dictionary:
@@ -186,8 +189,6 @@ class Optimizer:
                 if restriction_check(sequence, restriction_sites):
                     sequence_set.append(sequence)
 
-        self.expression_model = expression_model
-        self.subspace_model = subspace_model
         self.sequence_set = sequence_set
         self.expression_priority = expression_priority
         self.subspace_priority = subspace_priority
@@ -230,7 +231,6 @@ class Optimizer:
 
         sequence_set = [x for y, x in sorted(zip(score_set, self.sequence_set))]
         score_set.sort()
-        print(score_set[-1])
 
         counter = 0
         best_score = 0
@@ -264,7 +264,6 @@ class Optimizer:
 
             if score_set[-1] > best_score:
                 best_score = score_set[-1]
-                print(score_set[-1], counter)
                 counter = 0
 
         return sequence_set[-1]

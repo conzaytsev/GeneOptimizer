@@ -37,7 +37,7 @@ For the latest development version:
     optimization_model = genex.Optimizer(input_sequence, expression_model=expression_model, subspace_model=subspace_model)
     optimized_sequence = model.optimize(target_expression)
 
-#### genex.Optimizer parameters:
+#### `genex.Optimizer` parameters:
 
 To use a nucleotide input_sequence (default):
     
@@ -47,7 +47,7 @@ To use an amino acid input_sequence:
     
     sequence_type='protein'
 
-To activate an optimization parameter set its priority value to any positive value (default 0):
+To activate an optimization parameter set its priority value to any positive value (default 0 for everything except `expression_priority`):
     
     expression_priority=1
     subspace_priority=1
@@ -60,7 +60,7 @@ To exclude any oligonucleotides from the optimized sequence:
     
     restriction_sites = ['AAGGTAGGC', 'TTTATTATT']
 
-#### Optimizer.optimize parameters:
+#### `Optimizer.optimize` parameters:
 
 Target expression value in ppm (protein copies per million expressed by the cell):
 

@@ -12,7 +12,7 @@ This tool comes with pre-trined model for E. coli. For species train the models 
 ## Installation
 From PyPI:
 
-    pip install genex
+    pip install genop
 
 For the latest development version: 
     
@@ -21,23 +21,23 @@ For the latest development version:
 ## Usage
 #### Using the pre-trained models:
 
-    import genex
+    import genop
 
-    model = genex.Optimizer(input_sequence)
+    model = genop.Optimizer(input_sequence)
     optimized_sequence = model.optimize(target_expression)
 
 #### Using custom models:
 
-    import genex
+    import genop
     import cei
     import genespace
 
     expression_model = cei.CodonExpressionIndex(path_to_dataset)
     subspace_model = genespace.CodonPairSubspace(path_to_dataset, nu=0.1)
-    optimization_model = genex.Optimizer(input_sequence, expression_model=expression_model, subspace_model=subspace_model)
+    optimization_model = genop.Optimizer(input_sequence, expression_model=expression_model, subspace_model=subspace_model)
     optimized_sequence = model.optimize(target_expression)
 
-#### `genex.Optimizer` parameters:
+#### `genop.Optimizer` parameters:
 
 To use a nucleotide input_sequence (default):
     

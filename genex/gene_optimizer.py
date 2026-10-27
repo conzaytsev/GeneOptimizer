@@ -91,9 +91,9 @@ class Optimizer:
     def __init__(self, input_sequence, sequence_type='nucleotide', expression_model='coli', subspace_model='coli', set_size=1000, expression_priority=1,
                  subspace_priority=1, center_priority=0, gc_priority=0, n_children=10, max_iterations=300, restriction_sites=''):
         if expression_model == 'coli':
-            with open(files(models) / 'trained_models/511145_cei.pkl', 'rb') as file: self.cei_model = pickle.load(file)
+            with open(files(models) / '511145_cei.pkl', 'rb') as file: self.cei_model = pickle.load(file)
         if subspace_model == 'coli':
-            with open(files(models) / 'trained_models/511145_sub.pkl', 'rb') as file: self.subspace_model = pickle.load(file)
+            with open(files(models) / '511145_sub.pkl', 'rb') as file: self.subspace_model = pickle.load(file)
 
         codon_dictionary = [['TTT', 'TTC'],
                             ['TTA', 'TTG', 'CTT', 'CTC', 'CTA', 'CTG'],

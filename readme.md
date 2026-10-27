@@ -26,7 +26,7 @@ For the latest development version:
     model = genex.Optimizer(input_sequence)
     optimized_sequence = model.optimize(target_expression)
 
-# Using custom models:
+#### Using custom models:
 
     import genex
     import cei
@@ -37,7 +37,7 @@ For the latest development version:
     optimization_model = genex.Optimizer(input_sequence, expression_model=expression_model, subspace_model=subspace_model)
     optimized_sequence = model.optimize(target_expression)
 
-# genex.Optimizer parameters:
+#### genex.Optimizer parameters:
 
 To use a nucleotide input_sequence (default):
     
@@ -60,7 +60,7 @@ To exclude any oligonucleotides from the optimized sequence:
     
     restriction_sites = ['AAGGTAGGC', 'TTTATTATT']
 
-# Optimizer.optimize parameters:
+#### Optimizer.optimize parameters:
 
 Target expression value in ppm (protein copies per million expressed by the cell):
 

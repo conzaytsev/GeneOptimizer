@@ -19,7 +19,7 @@ For the latest development version:
     pip install git+https://github.com/conzaytsev/GeneOptimizer.git
 
 ## Usage
-### Using the pre-trained models:
+#### Using the pre-trained models:
 
     import genex
 

@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="genop", 
-    version='0.1.0',
+    version='0.1.1',
     author="Konstantin Zaytsev",
     url='https://github.com/conzaytsev/GeneOptimizer',
     description='Codon optimization tool',

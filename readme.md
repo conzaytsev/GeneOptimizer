@@ -7,7 +7,21 @@ This tool is based on [Codon Expression Index](https://github.com/conzaytsev/Cod
 `Python>3.9`, for custom model training: `cei`, `genespace`
 
 ## Data
-This tool comes with pre-trined model for E. coli. For species train the models using appropriate data formats for CEI and Gene Space models.
+This tool comes with pre-trined model for E. coli.
+In the organism selection, there is a custom tab that allows for the model training on custom datasets.
+For CEI this dataset should be provided as a table in the csv format with three columns: ID; expression value; gene sequence.
+First line of the table is reserved for the header.
+
+
+Example:
+
+    Protein ID;Protein copies;Gene sequence
+    P69776;38022.530250746298;ATGAAAGCTACTAAACTGGTACTGGGCGCGGTAATCCTGGGTTCTACTCTGCTGGCAGGTTGCTCCAGCAACGCTAAAATCGATCAGCTGTCTTCTGACGTTCAGACTCTGAACGCTAAAGTTGACCAGCTGAGCAACGACGTGAACGCAATGCGTTCCGACGTTCAGGCTGCTAAAGATGACGCAGCTCGTGCTAACCAGCGTCTGGACAACATGGCTACTAAATACCGCAAGTAA
+    P0AG51;4376.7908013480401;ATGGCAAAGACTATTAAAATTACTCAAACCCGCAGTGCAATCGGTCGTCTGCCGAAACACAAGGCAACGCTGCTTGGCCTGGGTCTGCGTCGTATTGGTCACACCGTAGAGCGCGAGGATACTCCTGCTATTCGCGGTATGATCAACGCGGTTTCCTTCATGGTTAAAGTTGAGGAGTAA
+    P0A7Q6;3802.6818971891998;ATGAAAGTTCGTGCTTCCGTCAAGAAATTATGCCGTAACTGCAAAATCGTTAAGCGTGATGGTGTCATCCGTGTGATTTGCAGTGCCGAGCCGAAGCATAAACAGCGCCAAGGCTGA
+
+
+The GeneSpace model can either use the same format dataset as CEI, or a Fasta file with nucleotide sequences.
 
 ## Installation
 From PyPI:
